@@ -24,6 +24,7 @@ func usage(out io.Writer, full bool) {
 	put("    d, delete\tDelete file or dir")
 	put("    y\tCopy to clipboard")
 	put("    .\tHide hidden files")
+	put("    s\tToggle preview split line")
 	put("    ?\tShow help")
 	if full {
 		put("\n  Flags:\n")

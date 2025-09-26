@@ -36,4 +36,5 @@ var (
 	keyYank      = key.NewBinding(key.WithKeys("y"))
 	keyHidden    = key.NewBinding(key.WithKeys("."))
 	keyHelp      = key.NewBinding(key.WithKeys("?"))
+	keySplit     = key.NewBinding(key.WithKeys("s"))
 )

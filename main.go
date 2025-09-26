@@ -36,7 +36,7 @@ var (
 	showIcons      = false
 	dirOnly        = false
 	fuzzyByDefault = false
-	withBorder     = false
+	withSplit      = false
 	withHighlight  = true
 	strlen         = runewidth.StringWidth
 )
@@ -102,8 +102,8 @@ func main() {
 			m.hideHidden = true
 			continue
 		}
-		if os.Args[i] == "--with-border" {
-			withBorder = true
+		if os.Args[i] == "--with-split" {
+			withSplit = true
 			continue
 		}
 		argsWithoutFlags = append(argsWithoutFlags, os.Args[i])
@@ -408,6 +408,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.hideHidden = !m.hideHidden
 			m.list()
 
+		case key.Matches(msg, keySplit):
+			withSplit = !withSplit
+
 		} // End of switch statement for key presses.
 
 		m.deleteCurrentFile = false
@@ -599,7 +602,7 @@ func (m *model) View() string {
 	view := main
 	if m.previewMode {
 		previewStyle := previewPlain
-		if withBorder {
+		if withSplit {
 			previewStyle = previewSplit
 		}
 		view = lipgloss.JoinHorizontal(
