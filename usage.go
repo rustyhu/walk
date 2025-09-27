@@ -32,7 +32,7 @@ func usage(out io.Writer, full bool) {
 		put("    --dir-only\tshow dirs only")
 		put("    --hide-hidden\thide hidden files")
 		put("    --preview\tdisplay preview")
-		put("    --with-border\tpreview with border")
+		put("    --with-split\tpreview with split line")
 		put("    --fuzzy\tfuzzy mode")
 	}
 	_ = w.Flush()
