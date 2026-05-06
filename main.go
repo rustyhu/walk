@@ -601,7 +601,7 @@ func (m *model) View() string {
 		// TODO: Show most recent status bar.
 		if len(m.toBeDeleted) > 0 {
 			toDelete := m.toBeDeleted[len(m.toBeDeleted)-1]
-			timeLeft := int(toDelete.at.Sub(time.Now()).Seconds())
+			timeLeft := int(time.Until(toDelete.at).Seconds())
 			deleteBar := fmt.Sprintf("%v deleted. (u)ndo %v", path.Base(toDelete.path), timeLeft)
 			main += "\n" + danger.Render(deleteBar)
 		} else if m.pasteError != "" {
