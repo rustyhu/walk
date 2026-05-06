@@ -239,7 +239,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				})
 			}
 		} else if m.searchMode {
-			if key.Matches(msg, keySearch) {
+			if key.Matches(msg, keySearch, keyQuit) {
 				m.searchMode = false
 				return m, nil
 			} else if key.Matches(msg, keyBack) {
