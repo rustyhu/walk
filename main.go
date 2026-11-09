@@ -409,7 +409,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				destDir := m.path
 				baseName := filepath.Base(m.yankedFilePath)
 				destPath := filepath.Join(destDir, baseName)
-				
+
 				// Don't paste if file already exists
 				if _, err := os.Stat(destPath); err == nil {
 					m.pasteError = "file already exists"
@@ -846,7 +846,7 @@ func (m *model) pasteFile(srcPath, destPath string) error {
 	if err != nil {
 		return err
 	}
-	
+
 	if srcInfo.IsDir() {
 		return copyDir(srcPath, destPath)
 	}
@@ -959,7 +959,8 @@ func (m *model) preview() {
 
 	switch {
 	case utf8.Valid(content):
-		previewContent := leaveOnlyAscii(content)
+		// previewContent := leaveOnlyAscii(content)
+		previewContent := string(content)
 		m.previewContent = previewContent
 
 		if withHighlight {
